@@ -16,6 +16,7 @@
  *
  *Окремий файл loremTable.js з масивом:
  * - loremTable - масив слів взятий при генерації в Sublime Text3;
+ *
  */
 
 const loremGenerator = (function () {
