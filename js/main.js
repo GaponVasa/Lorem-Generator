@@ -6,17 +6,14 @@ const field = document.querySelector(".field");
 const numberWords = document.querySelector(".numberWords");
 const inputPlaceholder = numberWords.placeholder;
 const regular = /^\d+$/gm; //тільки цифри
+const buttonCopy = document.getElementById("btn-copy");
 
-buttonGenerate.addEventListener("click", inputValidation);
-
-buttonReset.addEventListener("click", function () {
-  numberWords.value = "";
-  field.innerHTML = "Lorem text.";
+buttonCopy.addEventListener("click", function () {
+  const valueField = field.innerHTML;
+  window.prompt("Copy to clipboard: Ctrl+C, Enter", valueField);
 });
 
-//2. додати кнопку скопіювати у буфер
-
-function inputValidation() {
+buttonGenerate.addEventListener("click", function () {
   const valueInput = numberWords.value;
   if (valueInput !== "" && regular.test(valueInput)) {
     numberWords.classList.remove("placeholder_red");
@@ -25,12 +22,17 @@ function inputValidation() {
     numberWords.classList.add("placeholder_red");
   }
   numberWords.value = "";
-}
+});
 
-numberWords.addEventListener("focus", () => {
+buttonReset.addEventListener("click", function () {
+  numberWords.value = "";
+  field.innerHTML = "Lorem text.";
+});
+
+numberWords.addEventListener("focus", function () {
   numberWords.placeholder = "";
 });
 
-numberWords.addEventListener("blur", () => {
+numberWords.addEventListener("blur", function () {
   numberWords.placeholder = inputPlaceholder;
 });
