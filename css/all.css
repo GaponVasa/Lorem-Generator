@@ -32,9 +32,14 @@ body {
 .numberWords:focus {
   outline: none;
   border-color: orangered;
-  /* border-top-color: orangered;
-  border-left-color: orangered;
-  border-bottom-color: orangered; */
+}
+.placeholder_red {
+  border: 1px solid red;
+}
+.placeholder_red::placeholder {
+  color: red;
+  font-weight: bold;
+  opacity: 1;
 }
 .btn {
   padding: 0.55rem 1.5rem;
